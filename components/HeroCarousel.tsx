@@ -16,7 +16,7 @@ const heroImages = [
 const HeroCarousel = () => {
   return (
     <div className='hero-carousel'>
-         <Carousel showThumbs={false} autoPlay infiniteLoop interval={2000} showArrows = {false} showStatus={false}>
+         <Carousel showThumbs={false}  infiniteLoop  showArrows = {false} showStatus={false}>
                 {
                     heroImages.map((image) => (
                         <Image src = {image.imgurl}
