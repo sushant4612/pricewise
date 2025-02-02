@@ -100,27 +100,34 @@ const ProductsDetails = async ({params: {id}}: Props) => {
                   title = "Current Price"
                   iconSrc = "/assets/icons/price-tag.svg"
                   value = {`${product.currency} ${formatNumber(product.currentPrice)}`}
-                  borderColor = "#b6dbff"
               />
               <PriceInfo
-                  title = "Current Price"
-                  iconSrc = "/assets/icons/price-tag.svg"
-                  value = {`${product.currency} ${formatNumber(product.currentPrice)}`}
-                  borderColor = "#b6dbff"
+                  title = "Average Price"
+                  iconSrc = "/assets/icons/chart.svg"
+                  value = {`${product.currency} ${formatNumber(product.averagePrice)}`}
               />
               <PriceInfo
-                  title = "Current Price"
-                  iconSrc = "/assets/icons/price-tag.svg"
-                  value = {`${product.currency} ${formatNumber(product.currentPrice)}`}
-                  borderColor = "#b6dbff"
+                  title = "Highest Price"
+                  iconSrc = "/assets/icons/arrow-up.svg"
+                  value = {`${product.currency} ${formatNumber(product.highestPrice)}`}
               />
               <PriceInfo
-                  title = "Current Price"
-                  iconSrc = "/assets/icons/price-tag.svg"
+                  title = "Lowest Price"
+                  iconSrc = "/assets/icons/arrow-down.svg"
                   value = {`${product.currency} ${formatNumber(product.currentPrice)}`}
-                  borderColor = "#b6dbff"
               />
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-16 border-2 border-red-500">
+        <div className="flex flex-col gap-5">
+          <h3 className="text-2xl text-secondary font-semibold">
+            Product Description
+          </h3>
+
+          <div className="flex flex-col gap-4">
+            {product?.description?.split('\n')}
           </div>
         </div>
       </div>
