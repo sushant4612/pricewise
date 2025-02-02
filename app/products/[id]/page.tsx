@@ -130,7 +130,19 @@ const ProductsDetails = async ({params: {id}}: Props) => {
             {product?.description?.split('\n')}
           </div>
         </div>
+
+        <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
+          <Image
+            src="/assets/icons/bag.svg"
+            alt="check"
+            width={22}
+            height={22}
+          />
+
+          <Link href="/" className="text-base text-white">Buy Now</Link>
+        </button>
       </div>
+      
     </div>
   )
 }
