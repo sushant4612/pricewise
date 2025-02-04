@@ -1,14 +1,24 @@
 'use client'
 
-import { Description, Dialog, DialogBackdrop, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react'
+import { Dialog, DialogBackdrop, Transition, TransitionChild } from '@headlessui/react'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { FormEvent, Fragment, useState } from 'react'
 
 const Modal = () => {
   let [isOpen, setIsOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [email, setEmail] = useState('')
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // add
+
+    setIsSubmitting(false)
+    setEmail('')
+    closeModal()
+  }       
   const openModal = () => {
     setIsOpen(true)
   }
@@ -71,7 +81,7 @@ const Modal = () => {
                                Never miss a bargain again with out timely alerts! 
                             </p>
                         </div>
-                        <form className='flex flex-col mt-5'>
+                        <form onSubmit={handleSubmit} className='flex flex-col mt-5'>
                             <label htmlFor='email' className='text-sm font-medium text-gray-700'>Email address</label>
                             <div className='dialog-input_container'>
                                 <Image
@@ -82,10 +92,12 @@ const Modal = () => {
                                 />
                                 <input type="email"
                                 id='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder='Enter your email address' className='dialog-input' />
                             </div>
                             <button type='submit' className='dialog-btn'>
-                                Track
+                                {isSubmitting ? 'Submitting...' : "Track" }
                             </button>
                         </form>
                     </div>
